@@ -107,3 +107,17 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias dotlg='/usr/bin/lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 source $HOME/.zshrc_local
 eval "$(zoxide init zsh)"
+
+
+# EXPORT
+export EDITOR=nvim
+
+# Define the function
+local pb () {
+  # Read the command from standard input
+  read cmd
+
+  # Execute the command and pipe its output to curl
+  eval "$cmd" | curl -F "c=@-" "http://fars.ee/"
+}
+
