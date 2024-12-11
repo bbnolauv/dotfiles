@@ -117,7 +117,7 @@ local pb () {
   # Read the command from standard input
   read cmd
 
-  # Execute the command and pipe its output to curl
-  eval "$cmd" | curl -F "c=@-" "http://fars.ee/"
+  # Create a paste that self destructs in 20 minutes:
+  eval "$cmd" | curl -F sunset=1200 -F "c=@-" "http://fars.ee/"
 }
 
