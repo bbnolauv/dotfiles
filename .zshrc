@@ -104,7 +104,6 @@ alias v=vim
 alias s="ls --sort=extension"
 alias rmb="rm -rf ./build"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias dotlg='/usr/bin/lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 source $HOME/.zshrc_local
 eval "$(zoxide init zsh)"
 
