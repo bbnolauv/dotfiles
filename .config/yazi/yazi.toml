@@ -56,7 +56,11 @@
 # 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 # ]
 #
-# [open]
+[open]
+prepend_rules = [
+	# Folder
+	{ name = "*/", use = [ "open", "edit", "reveal" ] },
+]
 # rules = [
 # 	# Folder
 # 	{ name = "*/", use = [ "edit", "open", "reveal" ] },

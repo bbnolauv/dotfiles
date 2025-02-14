@@ -4,7 +4,8 @@
 
 [manager]
 prepend_keymap = [
-	{ on = "!", run  = 'shell "$SHELL" --block', desc = "Open shell here"},
+	{ on = "!", run  = 'shell "$SHELL" --block', desc = "Open shell here"}, # Unix
+  # { on = "!", run  = 'shell "powershell.exe" --block', desc = "Open PowerShell here"} # Windows
 ]
 
 # keymap = [
