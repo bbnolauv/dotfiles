@@ -1,5 +1,6 @@
 # Fonts
-font-family = "SauceCodePro Nerd Font"
+# font-family = "SauceCodePro Nerd Font"
+font-family = "JetbrainsMono Nerd Font"
 font-size = 11
 
 # Mouse
@@ -8,7 +9,8 @@ mouse-hide-while-typing = true
 # Theme
 background-opacity = 0.9
 cursor-invert-fg-bg = true
-window-theme = ghostty
+# window-theme = ghostty
+window-theme = system
 
 # Keybindings
 keybind = clear
