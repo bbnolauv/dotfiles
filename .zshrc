@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias b=nvim 
+alias b=nvim
 alias v=vim
 alias s="ls --sort=extension"
 alias rmb="rm -rf ./build"
