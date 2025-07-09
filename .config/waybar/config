@@ -5,7 +5,7 @@
     "modules-left": ["custom/launcher", "hyprland/workspaces", "cpu", "memory", "network"],
     "modules-center": ["clock", ],
     // "modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "pulseaudio",  "backlight", "battery", "custom/lock", "custom/power-menu"],
+    "modules-right": ["tray", "pulseaudio",  "battery", "backlight", "custom/lock", "custom/power-menu"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
