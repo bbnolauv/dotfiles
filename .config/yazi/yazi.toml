@@ -59,7 +59,7 @@ linemode       = "mtime"
 [open]
 prepend_rules = [
 	# Folder
-	{ name = "*/", use = [ "open", "edit", "reveal" ] },
+	{ url = "*/", use = [ "open", "edit", "reveal" ] },
 ]
 # rules = [
 # 	# Folder
