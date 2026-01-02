@@ -8,6 +8,6 @@ abbr b nvim
 abbr fe fastfetch
 abbr ra yazi
 abbr lg lazygit
-alias l="ls -lah"
-alias s="ls --sort=extension"
-alias rmb="rm -rf ./build"
+abbr l "ls -lah"
+abbr s "ls --sort=extension"
+abbr rmb "rm -r ./build"
