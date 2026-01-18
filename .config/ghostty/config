@@ -7,7 +7,7 @@ font-size = 11
 mouse-hide-while-typing = true
 
 # Theme
-background-opacity = 0.9
+background-opacity = 0.95
 cursor-invert-fg-bg = true
 # window-theme = ghostty
 window-theme = system
@@ -29,3 +29,4 @@ keybind = ctrl+shift+v=paste_from_clipboard
 gtk-single-instance = true
 window-decoration = false
 copy-on-select = clipboard
+# gtk-toolbar-style = flat
