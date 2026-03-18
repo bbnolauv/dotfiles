@@ -1,0 +1,77 @@
+# vim:fileencoding=utf-8:foldmethod=marker:foldlevel=99
+
+# Environment Variables{{{
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+export SUDO_EDITOR="$EDITOR"
+# }}}
+
+# Options{{{
+setopt AUTO_CD
+
+# The following settings are for interactive shells only.
+if [[ -o interactive ]]; then
+
+  # FZF default command
+  export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+
+  # Aliases
+  alias v='vim'
+  alias b='nvim'
+  alias fe='fastfetch'
+  alias ra='yazi'
+  alias lg='lazygit'
+  alias ls='eza'
+  # alias ls='ls --color=auto'
+  alias l='ls -lah'
+  alias s='ls --sort=extension'
+  alias rmb='rm -r ./build'
+
+  # Modern CLI Tools Initialization
+  if command -v atuin &> /dev/null; then
+    eval "$(atuin init zsh --disable-up-arrow)"
+  fi
+
+  if command -v fzf &> /dev/null; then
+    eval "$(fzf --zsh)"
+  fi
+
+  if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init zsh)"
+  fi
+fi
+# }}}
+
+# Functions{{{
+
+# alias for managing dotfiles
+function dotfiles() {
+  command git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" "$@"
+}
+
+# wrapper for nvim to use the lazyvim config
+function lvim() {
+  NVIM_APPNAME="lazyvim" command nvim "$@"
+}
+
+# toggle proxy settings
+function proxy_toggle() {
+  if [[ -n "$http_proxy" ]]; then
+    unset http_proxy https_proxy all_proxy
+    unset HTTP_PROXY HTTPS_PROXY ALL_PROXY
+    echo "🚫 Proxy disabled."
+  else
+    export http_proxy="http://127.0.0.1:7897"
+    export https_proxy="http://127.0.0.1:7897"
+    export all_proxy="socks5://127.0.0.1:7897"
+    export HTTP_PROXY=$http_proxy
+    export HTTPS_PROXY=$https_proxy
+    export ALL_PROXY=$all_proxy
+    echo "🌐 Proxy enabled: 127.0.0.1:7897"
+  fi
+}
+# }}}
+
+# Keybindings{{{
+bindkey -e
+# }}}

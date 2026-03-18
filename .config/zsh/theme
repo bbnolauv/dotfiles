@@ -1,0 +1,42 @@
+# ==============================================================================
+# Standalone Oh-My-Zsh 'robbyrussell' Theme
+# ==============================================================================
+
+# 1. Initialize Zsh native color module
+autoload -U colors && colors
+
+# 2. Enable Prompt variable substitution (allows dynamic function execution in terminal prompt, e.g., parsing Git)
+setopt PROMPT_SUBST
+
+# 3. Extract Git status parsing function (original depends on oh-my-zsh's lib/git.zsh)
+function git_prompt_info() {
+  local ref
+
+  # Check if current directory is a git repository, get branch name or commit hash
+  ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+
+  # Restore robbyrussell's Git colors and symbol definitions
+  local ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
+  local ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+  # %1{✗%} syntax tells Zsh this special symbol strictly occupies 1 character width, preventing command line layout mess
+  local ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}%1{✗%}"
+  local ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+
+  local dirty_status
+  # Check if current branch has uncommitted changes (dirty status)
+  if [[ -n $(command git status --porcelain 2> /dev/null | tail -n 1) ]]; then
+    dirty_status="$ZSH_THEME_GIT_PROMPT_DIRTY"
+  else
+    dirty_status="$ZSH_THEME_GIT_PROMPT_CLEAN"
+  fi
+
+  # Concatenate and output complete Git prompt info
+  echo "${ZSH_THEME_GIT_PROMPT_PREFIX}${ref#refs/heads/}${dirty_status}${ZSH_THEME_GIT_PROMPT_SUFFIX}"
+}
+
+# 4. Define command line prompt PROMPT (also known as PS1)
+# %(?:...) is a conditional syntax: shows green arrow on success, red arrow on failure
+# %c displays only the last level name of current working directory
+PROMPT="%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
+PROMPT+=' $(git_prompt_info)'
