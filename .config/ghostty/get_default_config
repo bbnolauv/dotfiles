@@ -1,0 +1,2 @@
+#!/bin/bash
+ghostty +show-config --default --docs > default

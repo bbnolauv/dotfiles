@@ -11,15 +11,15 @@ copy-on-select = clipboard
 # }}}
 
 # Appearance {{{
-background-opacity = 0.95
+# background-opacity = 0.95
 cursor-invert-fg-bg = true
 window-theme = system
 # custom-shader = ./shaders/bettercrt.glsl
 
-# background = #000000
-# background-image-opacity = 0.05
-# background-image = /home/lauv/Documents/Image/backgroud/wall-1.jpg
-# background-image-fit = stretch
+background = #000000
+background-image-opacity = 0.05
+background-image = ~/Documents/Image/backgroud/wall-1.jpg
+background-image-fit = cover
 # minimum-contrast = 2.5
 
 # }}}
