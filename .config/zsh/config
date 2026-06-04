@@ -4,6 +4,8 @@
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export SUDO_EDITOR="$EDITOR"
+
+export DOTBARE_DIR="$HOME/.dotfiles"
 # }}}
 
 # Options{{{
