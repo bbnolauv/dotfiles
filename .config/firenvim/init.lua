@@ -1,3 +1,7 @@
+-- options
+local o = vim.o
+o.swapfile = false
+
 vim.api.nvim_create_autocmd("PackChanged", {
 	callback = function(ev)
 		-- Use available |event-data|
