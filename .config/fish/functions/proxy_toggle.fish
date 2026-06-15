@@ -7,7 +7,7 @@ function proxy_toggle
     else
         set -gx http_proxy "http://127.0.0.1:7897"
         set -gx https_proxy "http://127.0.0.1:7897"
-        set -gx all_proxy "socks5://127.0.0.1:7897"
+        set -gx all_proxy "socks5h://127.0.0.1:7897"
         echo "🌐 Proxy enabled: 127.0.0.1:7897"
     end
 end
